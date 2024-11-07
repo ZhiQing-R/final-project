@@ -33,6 +33,7 @@ The general goal is to recreate the grass system as much as possible. My project
 
 - Screen space shadow
 - Grass LOD
+- Add custom objects to the scene
 
 ### Techniques
 
