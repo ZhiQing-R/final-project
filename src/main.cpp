@@ -90,11 +90,11 @@ namespace {
     void setTheme(Scene* scene)
     {
         scene->theme.reedCol = glm::vec3(0.6, 0.64, 0.57);
-        scene->theme.grassCol = glm::vec3(0.45, 0.64, 0.57) * 0.6f;
-        scene->theme.sunCol = glm::vec3(1.2, 0.75, 0.5);
-        scene->theme.skyCol = glm::vec3(0.9, 0.665, 0.45) * 1.0f;
+        scene->theme.grassCol = glm::vec3(0.39, 0.55, 0.36) * 0.7f;
+        scene->theme.sunCol = glm::vec3(0.9, 0.65, 0.5);
+        scene->theme.skyCol = glm::vec3(0.41, 0.515, 0.55) * 1.8f;
         scene->theme.ambientScale = 1.0f;
-        scene->theme.ambientBlend = 0.7f;
+        scene->theme.ambientBlend = 0.8f;
     }
 
 	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -108,7 +108,7 @@ namespace {
 				break;
 			case GLFW_KEY_1:
             {
-                // Luminescence of Eventide
+                // Eventide Farewell
 				Scene* scene = renderer->GetScene();
 				scene->theme.reedCol = glm::vec3(0.6, 0.64, 0.57);
                 scene->theme.grassCol = glm::vec3(0.45, 0.64, 0.57) * 0.6f;
@@ -182,12 +182,39 @@ namespace {
                 break;
             }
 		}
+
+		if (action == GLFW_REPEAT || action == GLFW_PRESS)
+		{
+			switch (key)
+			{
+			case GLFW_KEY_W:
+				camera->UpdateOrbit(0.0f, -0.5f, 0.0f);
+				break;
+			case GLFW_KEY_S:
+				camera->UpdateOrbit(0.0f, 0.5f, 0.0f);
+				break;
+			case GLFW_KEY_A:
+				camera->UpdateOrbit(-0.5f, 0.0f, 0.0f);
+				break;
+			case GLFW_KEY_D:
+				camera->UpdateOrbit(0.5f, 0.0f, 0.0f);
+				break;
+            case GLFW_KEY_Q:
+                camera->UpdateOrbit(0.0f, 0.0f, 0.5f);
+                break;
+            case GLFW_KEY_E:
+                camera->UpdateOrbit(0.0f, 0.0f, -0.5f);
+                break;
+			default:
+				break;
+			}
+		}
 	}
 }
 
 int main() {
     static constexpr char* applicationName = "Vulkan Grass Rendering";
-    InitializeWindow(1440, 1080, applicationName);
+    InitializeWindow(1920, 1080, applicationName);
 
     unsigned int glfwExtensionCount = 0;
     const char** glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);

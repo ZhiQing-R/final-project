@@ -173,11 +173,11 @@ vec4 raymarchClouds( in vec3 ro, in vec3 rd, in vec3 bcol, float tmax)
 	uint randSeed = tea(floatBitsToUint(fragTexCoord.x + time.totalTime), floatBitsToUint(fragTexCoord.y + time.deltaTime));
     float upper = (cloudHeight - ro.y) / rd.y;
     float lower = (cloudHeight - 30.0 - ro.y) / rd.y;
-    float stepSize = (upper - lower) / 24.0;
+    float stepSize = (upper - lower) / 56.0;
 
 	float sun = clamp( dot(rd,-lightDir), 0.0, 1.0 );
 	float t = 0.1f * perlin(ro.xz);
-	for(int i = 0; i < 32; i++)
+	for(int i = 0; i < 64; i++)
 	{
 		if( sum.w > 0.99 || t > tmax ) break;
 		vec3 pos = ro + t*rd;
