@@ -4,6 +4,12 @@
 
 ![final](./img/final.gif)
 
+If interested, please check the full demo video below:
+
+[Youtube](https://www.youtube.com/watch?v=ccOH68AhRQo)
+
+[![Video](http://img.youtube.com/vi/ccOH68AhRQo/0.jpg)](http://www.youtube.com/watch?v=ccOH68AhRQo "Youtube")
+
 ### Usage
 
 Please use cmake to compile the code. Make sure your device has a discrete GPU and support Vulkan 1.3.
@@ -78,3 +84,4 @@ To recreate the visuals in the reference image, I plan to achieve these features
   - 4 Themes
 
 ![](img/final.gif)
+
